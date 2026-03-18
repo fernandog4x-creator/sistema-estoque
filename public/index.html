@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EstoqueControl</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <span class="logo-icon">📦</span>
+          <span class="logo-text">EstoqueControl</span>
+        </div>
+        <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">☰</button>
+      </div>
+      <nav class="nav">
+        <a href="#" class="nav-item active" data-page="dashboard" onclick="navigate('dashboard', this)">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="#" class="nav-item" data-page="produtos" onclick="navigate('produtos', this)">
+          <span class="nav-icon">🏷️</span>
+          <span class="nav-label">Produtos</span>
+        </a>
+        <a href="#" class="nav-item" data-page="enderecos" onclick="navigate('enderecos', this)">
+          <span class="nav-icon">📍</span>
+          <span class="nav-label">Endereços</span>
+        </a>
+        <a href="#" class="nav-item" data-page="movimentacao" onclick="navigate('movimentacao', this)">
+          <span class="nav-icon">🔄</span>
+          <span class="nav-label">Movimentação</span>
+        </a>
+        <a href="#" class="nav-item" data-page="historico" onclick="navigate('historico', this)">
+          <span class="nav-icon">📜</span>
+          <span class="nav-label">Histórico</span>
+        </a>
+        <a href="#" class="nav-item" data-page="inventario" onclick="navigate('inventario', this)">
+          <span class="nav-icon">🔍</span>
+          <span class="nav-label">Inventário</span>
+        </a>
+        <a href="#" class="nav-item" data-page="consulta" onclick="navigate('consulta', this)">
+          <span class="nav-icon">📊</span>
+          <span class="nav-label">Consulta</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <span>v1.0.0</span>
+      </div>
+    </aside>
+
+    <!-- Overlay para mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <!-- Conteúdo principal -->
+    <main class="content" id="mainContent">
+      <div class="content-header" id="pageHeader">
+        <h1 id="pageTitle">Dashboard</h1>
+        <div id="pageActions"></div>
+      </div>
+      <div id="page-content" class="page-content"></div>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay hidden" id="modal-overlay" onclick="closeModal()"></div>
+  <div class="modal hidden" id="modal">
+    <div class="modal-header">
+      <h2 id="modal-title">Título</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast hidden" id="toast">
+    <span id="toast-icon">✓</span>
+    <span id="toast-msg">Mensagem</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
